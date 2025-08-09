@@ -1,0 +1,8 @@
+export OTEL_EXPORTER_OTLP_ENDPOINT="otlp.nr-data.net:4317"
+export OTEL_EXPORTER_OTLP_HEADERS="api-key=<YOUR_NEW_RELIC_LICENSE_KEY>"
+export OTEL_SERVICE_NAME="shippingservice"
+export OTEL_SERVICE_VERSION="1.0.0"
+export OTEL_RESOURCE_ATTRIBUTES="deployment.environment=prod"
+
+
+grpcurl -plaintext localhost:50051 list
