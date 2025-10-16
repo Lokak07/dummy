@@ -120,6 +120,15 @@ output "gateway_addresses" {
   description = "Gateway status addresses (includes ALB hostname once ready)"
 }
 
+
+helm upgrade --install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  -n kube-system \
+  --set clusterName=<CLUSTER_NAME> \
+  --set serviceAccount.create=false \
+  --set serviceAccount.name=aws-load-balancer-controller \
+  --set enableGatewayAPI=true
+
+
 output "host" {
   value = var.host
 }
